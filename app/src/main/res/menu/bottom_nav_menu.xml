@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/apod"
+        android:id="@+id/item_apod"
+        android:icon="@drawable/ic_apod"/>
+    <item
+        android:title="@string/donki"
+        android:id="@+id/item_donki"
+        android:icon="@drawable/ic_donki"/>
+    <item
+        android:title="@string/epic"
+        android:id="@+id/item_epic"
+        android:icon="@drawable/ic_epic"/>
+</menu>
