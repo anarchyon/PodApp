@@ -1,14 +1,14 @@
 package project.paveltoy.podapp.data
 
-class DataRepoImpl: DataRepo {
-    private val loader: DataLoader? = null
+import project.paveltoy.podapp.data.entities.Apod
+import retrofit2.Callback
 
-    constructor(
-        loader: DataRepoImpl = DataRepoImpl()
-    )
+class DataRepoImpl(
+    private val loader: DataLoader = DataLoaderImpl()
+) : DataRepo {
 
-    override fun getPictureOfTheDay(date: String?) {
-        loader?.loadPictureOfTheDay(date)
+    override fun getPictureOfTheDay(date: String, callback: Callback<Apod>) {
+        loader.loadPictureOfTheDay(date, callback)
     }
 
     override fun getAllEpicNatural() {

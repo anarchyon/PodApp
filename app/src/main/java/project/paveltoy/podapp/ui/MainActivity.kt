@@ -1,10 +1,11 @@
-package project.paveltoy.podapp
+package project.paveltoy.podapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import project.paveltoy.podapp.R
 import project.paveltoy.podapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +17,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavigation()
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        setSupportActionBar(binding.topAppbar)
     }
 
     private fun initNavigation() {

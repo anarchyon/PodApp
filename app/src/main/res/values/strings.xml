@@ -6,4 +6,7 @@
     <string name="apod">Картинка дня</string>
     <string name="donki">Космическая погода</string>
     <string name="epic">Визуализация Земли</string>
+    <string name="day_before_yesterday">Позавчера</string>
+    <string name="yesterday">Вчера</string>
+    <string name="today">Сегодня</string>
 </resources>

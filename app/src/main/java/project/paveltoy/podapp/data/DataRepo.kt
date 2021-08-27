@@ -1,7 +1,10 @@
 package project.paveltoy.podapp.data
 
+import project.paveltoy.podapp.data.entities.Apod
+import retrofit2.Callback
+
 interface DataRepo {
-    fun getPictureOfTheDay(date: String?)
+    fun getPictureOfTheDay(date: String, callback: Callback<Apod>)
 
     fun getAllEpicNatural()
 
