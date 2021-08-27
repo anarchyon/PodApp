@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">PodApp</string>
+    <string name="apod_decoding">Astronomy Picture of the Day</string>
+    <string name="donki_decoding">Space Weather Database Of Notifications, Knowledge, Information</string>
+    <string name="epic_decoding">Earth Polychromatic Imaging Camera</string>
+    <string name="apod">Космическа картинка дня</string>
+    <string name="donki">Космическая погода</string>
+    <string name="epic">Визуализация Земли</string>
+    <string name="day_before_yesterday">Позавчера</string>
+    <string name="yesterday">Вчера</string>
+    <string name="today">Сегодня</string>
+    <string name="donki_short">Погода</string>
+    <string name="epic_short">Визуализация</string>
+    <string name="apod_short">Картинка дня</string>
 </resources>

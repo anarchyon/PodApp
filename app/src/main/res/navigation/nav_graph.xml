@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/apod_fragment">
+
+    <fragment
+        android:id="@+id/apod_fragment"
+        android:name="project.paveltoy.podapp.ui.apod.ApodFragment"
+        android:label="ApodFragment" />
+    <fragment
+        android:id="@+id/donki_fragment"
+        android:name="project.paveltoy.podapp.ui.donki.DonkiFragment"
+        android:label="DonkiFragment" />
+    <fragment
+        android:id="@+id/epic_fragment"
+        android:name="project.paveltoy.podapp.ui.epic.EpicFragment"
+        android:label="EpicFragment" />
+    <action
+        android:id="@+id/action_to_donki_fragment"
+        app:destination="@id/donki_fragment" />
+    <action
+        android:id="@+id/action_to_epic_fragment"
+        app:destination="@id/epic_fragment" />
+</navigation>
