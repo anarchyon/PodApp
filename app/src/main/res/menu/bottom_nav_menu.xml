@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="@string/apod"
+        android:title="@string/apod_short"
         android:id="@+id/apod_fragment"
         android:icon="@drawable/ic_apod"/>
     <item
-        android:title="@string/donki"
+        android:title="@string/donki_short"
         android:id="@+id/donki_fragment"
         android:icon="@drawable/ic_donki"/>
     <item
-        android:title="@string/epic"
+        android:title="@string/epic_short"
         android:id="@+id/epic_fragment"
         android:icon="@drawable/ic_epic"/>
 </menu>

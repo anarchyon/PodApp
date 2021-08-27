@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
@@ -54,7 +55,7 @@ class ApodFragment : Fragment() {
     }
 
     private fun setTitle() {
-        requireActivity().actionBar?.title = getString(R.string.apod)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.apod)
     }
 
     private fun getDateInString(date: Date): String {
