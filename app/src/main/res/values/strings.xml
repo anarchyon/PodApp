@@ -3,7 +3,7 @@
     <string name="apod_decoding">Astronomy Picture of the Day</string>
     <string name="donki_decoding">Space Weather Database Of Notifications, Knowledge, Information</string>
     <string name="epic_decoding">Earth Polychromatic Imaging Camera</string>
-    <string name="apod">Космическа картинка дня</string>
+    <string name="apod">Космическая картинка дня</string>
     <string name="donki">Космическая погода</string>
     <string name="epic">Визуализация Земли</string>
     <string name="day_before_yesterday">Позавчера</string>
@@ -12,4 +12,11 @@
     <string name="donki_short">Погода</string>
     <string name="epic_short">Визуализация</string>
     <string name="apod_short">Картинка дня</string>
+    <string name="settings">Настройки</string>
+    <string name="settings_theme">Выберите тему</string>
+    <string name="standard_theme">Стандартная</string>
+    <string name="purple_theme">Purple</string>
+    <string name="blue_grey_theme">Blue-Grey</string>
+    <string name="red_theme">Red</string>
+    <string name="light_blue_theme">Light-Blue</string>
 </resources>
