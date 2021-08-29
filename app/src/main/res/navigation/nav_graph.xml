@@ -4,6 +4,22 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/apod_fragment">
 
+    <action
+        android:id="@+id/action_to_donki_fragment"
+        app:destination="@id/donki_fragment" />
+    <action
+        android:id="@+id/action_to_epic_fragment"
+        app:destination="@id/epic_fragment" />
+    <action
+        android:id="@+id/action_to_settings_fragment"
+        app:destination="@id/settings_fragment" />
+    <action
+        android:id="@+id/action_to_home"
+        app:destination="@id/apod_fragment" />
+    <fragment
+        android:id="@+id/epic_fragment"
+        android:name="project.paveltoy.podapp.ui.epic.EpicFragment"
+        android:label="EpicFragment" />
     <fragment
         android:id="@+id/apod_fragment"
         android:name="project.paveltoy.podapp.ui.apod.ApodFragment"
@@ -13,13 +29,7 @@
         android:name="project.paveltoy.podapp.ui.donki.DonkiFragment"
         android:label="DonkiFragment" />
     <fragment
-        android:id="@+id/epic_fragment"
-        android:name="project.paveltoy.podapp.ui.epic.EpicFragment"
-        android:label="EpicFragment" />
-    <action
-        android:id="@+id/action_to_donki_fragment"
-        app:destination="@id/donki_fragment" />
-    <action
-        android:id="@+id/action_to_epic_fragment"
-        app:destination="@id/epic_fragment" />
+        android:id="@+id/settings_fragment"
+        android:name="project.paveltoy.podapp.ui.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

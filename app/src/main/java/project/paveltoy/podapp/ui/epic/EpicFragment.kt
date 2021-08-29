@@ -6,21 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import by.kirich1409.viewbindingdelegate.viewBinding
 import project.paveltoy.podapp.R
 import project.paveltoy.podapp.databinding.FragmentEpicBinding
 
-class EpicFragment: Fragment() {
-    private var _binding: FragmentEpicBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentEpicBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+class EpicFragment: Fragment(R.layout.fragment_epic) {
+    private val binding: FragmentEpicBinding by viewBinding(FragmentEpicBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,10 +20,5 @@ class EpicFragment: Fragment() {
 
     private fun setTitle() {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.epic)
-    }
-
-    override fun onDestroy() {
-        _binding = null
-        super.onDestroy()
     }
 }

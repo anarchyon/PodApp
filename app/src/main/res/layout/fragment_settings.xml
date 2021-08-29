@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/common_margin">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/theme_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_theme"
+        style="@style/Widget.MaterialComponents.TextView.Settings"/>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chips_themes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/common_margin"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/purple_theme"
+            style="@style/Widget.MaterialComponents.Chip.Choice.Settings"
+            android:layout_height="wrap_content"
+            android:text="@string/purple_theme"
+            android:textAppearance="@style/setting_chip" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/blue_grey_theme"
+            style="@style/Widget.MaterialComponents.Chip.Choice.Settings"
+            android:layout_height="wrap_content"
+            android:text="@string/blue_grey_theme"
+            android:textAppearance="@style/setting_chip" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/red_theme"
+            style="@style/Widget.MaterialComponents.Chip.Choice.Settings"
+            android:layout_height="wrap_content"
+            android:text="@string/red_theme"
+            android:textAppearance="@style/setting_chip" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/light_blue_theme"
+            style="@style/Widget.MaterialComponents.Chip.Choice.Settings"
+            android:layout_height="wrap_content"
+            android:text="@string/light_blue_theme"
+            android:textAppearance="@style/setting_chip" />
+    </com.google.android.material.chip.ChipGroup>
+
+</LinearLayout>
