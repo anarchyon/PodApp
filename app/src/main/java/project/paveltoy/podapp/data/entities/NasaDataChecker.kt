@@ -1,6 +1,5 @@
-package project.paveltoy.podapp.data
+package project.paveltoy.podapp.data.entities
 
-import project.paveltoy.podapp.data.entities.Apod
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

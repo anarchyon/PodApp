@@ -2,6 +2,7 @@ package project.paveltoy.podapp.data
 
 import project.paveltoy.podapp.BuildConfig
 import project.paveltoy.podapp.data.entities.Apod
+import project.paveltoy.podapp.data.entities.NasaDataChecker
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

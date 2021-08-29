@@ -13,7 +13,9 @@ import project.paveltoy.podapp.databinding.FragmentApodBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-private const val DATE_FORMAT = "yyyy-MM-dd"
+private const val OFFSET_FOR_BEFORE_YESTERDAY = -2
+private const val OFFSET_FOR_YESTERDAY = -1
+private const val OFFSET_FOR_TODAY = 0
 
 class ApodFragment : Fragment(R.layout.fragment_apod) {
     private val binding: FragmentApodBinding by viewBinding(FragmentApodBinding::bind)
@@ -29,30 +31,18 @@ class ApodFragment : Fragment(R.layout.fragment_apod) {
 
     private fun setChipsListener() {
         binding.chipsApod.setOnCheckedChangeListener { _, checkedId ->
-            val calendar = Calendar.getInstance()
-            when (checkedId) {
-                binding.beforeYesterdayApod.id -> {
-                    calendar.add(Calendar.DAY_OF_MONTH, -2)
+            viewModel.loadApod(
+                when (checkedId) {
+                    binding.beforeYesterdayApod.id -> OFFSET_FOR_BEFORE_YESTERDAY
+                    binding.yesterdayApod.id -> OFFSET_FOR_YESTERDAY
+                    else -> OFFSET_FOR_TODAY
                 }
-                binding.yesterdayApod.id -> {
-                    calendar.add(Calendar.DAY_OF_MONTH, -1)
-                }
-            }
-            val date = calendar.time
-            getApod(getDateInString(date))
+            )
         }
     }
 
     private fun setTitle() {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.apod)
-    }
-
-    private fun getDateInString(date: Date): String {
-        return SimpleDateFormat(DATE_FORMAT, Locale.getDefault()).format(date)
-    }
-
-    private fun getApod(date: String) {
-        viewModel.loadApod(date)
     }
 
     private fun initViewModel() {
