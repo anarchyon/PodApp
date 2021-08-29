@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.squareup.picasso.Picasso
 import project.paveltoy.podapp.R
 import project.paveltoy.podapp.data.entities.Apod
@@ -16,19 +17,9 @@ import java.util.*
 
 private const val DATE_FORMAT = "yyyy-MM-dd"
 
-class ApodFragment : Fragment() {
-    private var _binding: FragmentApodBinding? = null
-    private val binding get() = _binding!!
+class ApodFragment : Fragment(R.layout.fragment_apod) {
+    private val binding: FragmentApodBinding by viewBinding(FragmentApodBinding::bind)
     private lateinit var viewModel: ApodViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentApodBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -78,10 +69,5 @@ class ApodFragment : Fragment() {
             Picasso.get().load(apod.url).into(apodImage)
             apodExplanation.text = apod.explanation
         }
-    }
-
-    override fun onDestroy() {
-        _binding = null
-        super.onDestroy()
     }
 }

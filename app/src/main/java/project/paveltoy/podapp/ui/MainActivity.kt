@@ -8,17 +8,17 @@ import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import by.kirich1409.viewbindingdelegate.viewBinding
 import project.paveltoy.podapp.R
 import project.paveltoy.podapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
+    private val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::bind)
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
         initNavigation()
         initToolbar()
     }
@@ -55,6 +55,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }

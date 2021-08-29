@@ -6,21 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import by.kirich1409.viewbindingdelegate.viewBinding
 import project.paveltoy.podapp.R
 import project.paveltoy.podapp.databinding.FragmentSettingsBinding
 
-class SettingsFragment: Fragment() {
-    private var _binding: FragmentSettingsBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+class SettingsFragment: Fragment(R.layout.fragment_settings) {
+    private val binding: FragmentSettingsBinding by viewBinding(FragmentSettingsBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -56,10 +47,5 @@ class SettingsFragment: Fragment() {
 
     private fun setTitle() {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.settings)
-    }
-
-    override fun onDestroy() {
-        _binding = null
-        super.onDestroy()
     }
 }
