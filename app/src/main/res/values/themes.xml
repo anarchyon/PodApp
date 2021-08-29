@@ -56,5 +56,19 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Widget.MaterialComponents.Chip.Choice.Settings">
+        <item name="android:layout_width">300dp</item>
+        <item name="chipBackgroundColor">#f2fde4</item>
+        <item name="chipCornerRadius">8dp</item>
+    </style>
+
+    <style name="setting_chip" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="fontFamily">@font/robertac</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.TextView.Settings">
+        <item name="fontFamily">@font/robertac</item>
+        <item name="android:textSize">30sp</item>
+    </style>
 
 </resources>
