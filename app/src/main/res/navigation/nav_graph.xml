@@ -13,6 +13,9 @@
     <action
         android:id="@+id/action_to_settings_fragment"
         app:destination="@id/settings_fragment" />
+    <action
+        android:id="@+id/action_to_home"
+        app:destination="@id/apod_fragment" />
     <fragment
         android:id="@+id/epic_fragment"
         android:name="project.paveltoy.podapp.ui.epic.EpicFragment"
