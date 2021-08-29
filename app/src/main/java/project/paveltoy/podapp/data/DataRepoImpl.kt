@@ -1,13 +1,12 @@
 package project.paveltoy.podapp.data
 
 import project.paveltoy.podapp.data.entities.Apod
-import retrofit2.Callback
 
 class DataRepoImpl(
     private val loader: DataLoader = DataLoaderImpl()
 ) : DataRepo {
 
-    override fun getPictureOfTheDay(date: String, callback: Callback<Apod>) {
+    override fun getPictureOfTheDay(date: String, callback: (apod: Apod) -> Unit) {
         loader.loadPictureOfTheDay(date, callback)
     }
 

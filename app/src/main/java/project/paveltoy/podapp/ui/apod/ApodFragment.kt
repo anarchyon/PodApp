@@ -52,7 +52,7 @@ class ApodFragment : Fragment(R.layout.fragment_apod) {
     }
 
     private fun getApod(date: String) {
-        viewModel.getApod(date)
+        viewModel.loadApod(date)
     }
 
     private fun initViewModel() {
