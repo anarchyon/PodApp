@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
 import project.paveltoy.podapp.R
 import project.paveltoy.podapp.databinding.FragmentEpicBinding
@@ -16,6 +17,14 @@ class EpicFragment: Fragment(R.layout.fragment_epic) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTitle()
+        setViewPager()
+    }
+
+    private fun setViewPager() {
+        val pager = binding.epicColorsPager
+        val adapter = EpicAdapter(this)
+        adapter.fragmentSet = mutableListOf(NaturalColorsFragment(), EnhancedColorsFragment())
+        pager.adapter = adapter
     }
 
     private fun setTitle() {

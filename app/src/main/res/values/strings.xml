@@ -19,4 +19,6 @@
     <string name="blue_grey_theme">Blue-Grey</string>
     <string name="red_theme">Red</string>
     <string name="light_blue_theme">Light-Blue</string>
+    <string name="epic_natural">Естественные цвета</string>
+    <string name="epic_enhanced">Улучшенные цвета</string>
 </resources>
