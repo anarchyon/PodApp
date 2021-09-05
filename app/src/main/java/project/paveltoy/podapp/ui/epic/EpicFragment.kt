@@ -21,10 +21,9 @@ class EpicFragment: Fragment(R.layout.fragment_epic) {
     }
 
     private fun setViewPager() {
-        val pager = binding.epicColorsPager
         val adapter = EpicAdapter(this)
-        adapter.fragmentSet = mutableListOf(NaturalColorsFragment(), EnhancedColorsFragment())
-        pager.adapter = adapter
+        adapter.fragmentSet = listOf(NaturalColorsFragment(), EnhancedColorsFragment())
+        binding.epicColorsPager.adapter = adapter
     }
 
     private fun setTitle() {

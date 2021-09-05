@@ -1,6 +1,7 @@
 package project.paveltoy.podapp.data
 
 import project.paveltoy.podapp.data.entities.Apod
+import project.paveltoy.podapp.data.entities.EpicDay
 
 class DataRepoImpl(
     private val loader: DataLoader = DataLoaderImpl()
@@ -10,7 +11,8 @@ class DataRepoImpl(
         loader.loadPictureOfTheDay(date, callback)
     }
 
-    override fun getAllEpicNatural() {
+    override fun getAllEpicNatural(callback: (epicDays: List<EpicDay>) -> Unit) {
+        loader.loadAllEpicNatural(callback)
     }
 
     override fun getAllEpicNaturalByDate(date: String) {

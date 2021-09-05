@@ -17,15 +17,15 @@ class ApodViewModel(
 
     fun loadApod(dayOffset: Int) {
         val date = getDateAsString(dayOffset)
-        repo.getPictureOfTheDay(date, this::setApodLiveData)
+        repo.getPictureOfTheDay(date) {
+            apodLiveData.value = it
+        }
     }
 
     fun loadApod(date: String) {
-        repo.getPictureOfTheDay(date, this::setApodLiveData)
-    }
-
-    private fun setApodLiveData(apod: Apod) {
-        apodLiveData.value = apod
+        repo.getPictureOfTheDay(date) {
+            apodLiveData.value = it
+        }
     }
 
     private fun getDateAsString(dayOffset: Int): String {

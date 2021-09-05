@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class EpicAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
-    var fragmentSet: MutableList<Fragment> = mutableListOf()
+    var fragmentSet: List<Fragment> = listOf()
 
     override fun getItemCount(): Int {
         return fragmentSet.size
