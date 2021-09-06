@@ -12,7 +12,7 @@ interface DataRepo {
 
     fun getEpicNatural(date: String, imageType: String, fileName: String)
 
-    fun getAllEpicEnhanced()
+    fun getAllEpicEnhanced(callback: (epicDays: List<EpicDay>) -> Unit)
 
     fun getAllEpicEnhancedByDate(date: String)
 

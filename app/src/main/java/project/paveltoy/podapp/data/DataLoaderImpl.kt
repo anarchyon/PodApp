@@ -26,4 +26,9 @@ class DataLoaderImpl : DataLoader {
         NasaDataChecker.epicDaysCallback = callback
         nasaServerApi.getAllNatural(API_KEY_VALUE).enqueue(NasaDataChecker.epicDaysLoadCallback)
     }
+
+    override fun loadAllEpicEnhanced(callback: (epicDays: List<EpicDay>) -> Unit) {
+        NasaDataChecker.epicDaysCallback = callback
+        nasaServerApi.getAllEnhanced(API_KEY_VALUE).enqueue(NasaDataChecker.epicDaysLoadCallback)
+    }
 }

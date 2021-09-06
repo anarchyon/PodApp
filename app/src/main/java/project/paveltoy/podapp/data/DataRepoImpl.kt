@@ -21,7 +21,8 @@ class DataRepoImpl(
     override fun getEpicNatural(date: String, imageType: String, fileName: String) {
     }
 
-    override fun getAllEpicEnhanced() {
+    override fun getAllEpicEnhanced(callback: (epicDays: List<EpicDay>) -> Unit) {
+        loader.loadAllEpicEnhanced(callback)
     }
 
     override fun getAllEpicEnhancedByDate(date: String) {

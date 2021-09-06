@@ -1,4 +1,4 @@
-package project.paveltoy.podapp.ui.epic
+package project.paveltoy.podapp.ui.epic.colortype
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,10 +8,14 @@ import project.paveltoy.podapp.databinding.ItemEpicBinding
 
 class EpicDatesAdapter: RecyclerView.Adapter<EpicDatesAdapter.DatesViewHolder>() {
     var dates: List<EpicDay> = listOf()
+    var callback: ((date: String) -> Unit)? = null
 
-    class DatesViewHolder(private val binding: ItemEpicBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class DatesViewHolder(private val binding: ItemEpicBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(epicDay: EpicDay) {
             binding.epicDate.text = epicDay.date
+            itemView.setOnClickListener {
+                callback?.invoke(epicDay.date)
+            }
         }
     }
 

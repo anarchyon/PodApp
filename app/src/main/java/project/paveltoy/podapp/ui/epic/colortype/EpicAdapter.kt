@@ -1,4 +1,4 @@
-package project.paveltoy.podapp.ui.epic
+package project.paveltoy.podapp.ui.epic.colortype
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

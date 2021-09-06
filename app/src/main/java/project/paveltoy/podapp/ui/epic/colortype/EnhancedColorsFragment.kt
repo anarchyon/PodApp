@@ -1,4 +1,4 @@
-package project.paveltoy.podapp.ui.epic
+package project.paveltoy.podapp.ui.epic.colortype
 
 import android.os.Bundle
 import android.view.View
@@ -7,10 +7,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import project.paveltoy.podapp.R
-import project.paveltoy.podapp.databinding.FragmentNaturalColorsBinding
+import project.paveltoy.podapp.databinding.FragmentEnhancedColorsBinding
+import project.paveltoy.podapp.ui.epic.EpicViewModel
 
-class NaturalColorsFragment : Fragment(R.layout.fragment_natural_colors) {
-    private val binding: FragmentNaturalColorsBinding by viewBinding(FragmentNaturalColorsBinding::bind)
+class EnhancedColorsFragment: Fragment(R.layout.fragment_enhanced_colors) {
+    private val binding: FragmentEnhancedColorsBinding by viewBinding(FragmentEnhancedColorsBinding::bind)
     private val epicDatesAdapter = EpicDatesAdapter()
     private var viewModel: EpicViewModel? = null
 
@@ -18,21 +19,26 @@ class NaturalColorsFragment : Fragment(R.layout.fragment_natural_colors) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         initViewModel()
-        viewModel?.loadEpicDatesNatural()
+        viewModel?.loadEpicDatesEnhanced()
     }
 
     private fun initViewModel() {
         viewModel = ViewModelProvider(this).get(EpicViewModel::class.java)
-        viewModel?.naturalColorsLiveData?.observe(viewLifecycleOwner) {
+        viewModel?.enhancedColorsLiveData?.observe(viewLifecycleOwner) {
             epicDatesAdapter.dates = it
             epicDatesAdapter.notifyDataSetChanged()
         }
     }
 
     private fun initRecyclerView() {
-        binding.naturalRecyclerView.apply {
+        binding.enhancedRecyclerView.apply {
             adapter = epicDatesAdapter
+            epicDatesAdapter.callback = this@EnhancedColorsFragment::epicDateClickListener
             layoutManager = LinearLayoutManager(context)
         }
+    }
+
+    private fun epicDateClickListener(date: String) {
+        viewModel?.loadEpicEnhancedImages(date)
     }
 }

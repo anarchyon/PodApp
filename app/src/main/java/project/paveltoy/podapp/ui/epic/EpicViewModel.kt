@@ -8,9 +8,13 @@ import project.paveltoy.podapp.data.entities.EpicDay
 
 class EpicViewModel(
     private val repo: DataRepo = DataRepoImpl()
-): ViewModel() {
+) : ViewModel() {
     private var _naturalColorsLiveData = MutableLiveData<List<EpicDay>>()
     val naturalColorsLiveData get() = _naturalColorsLiveData
+    private var _enhancedColorsLiveData = MutableLiveData<List<EpicDay>>()
+    val enhancedColorsLiveData get() = _enhancedColorsLiveData
+    private var _epicImageLiveData = MutableLiveData<List<String>>()
+    val epicImageLiveData get() = _epicImageLiveData
 
     fun loadEpicDatesNatural() {
         repo.getAllEpicNatural {
@@ -19,6 +23,20 @@ class EpicViewModel(
     }
 
     fun loadEpicDatesEnhanced() {
-        repo.getAllEpicEnhanced()
+        repo.getAllEpicEnhanced {
+            _enhancedColorsLiveData.value = it
+        }
+    }
+
+    fun loadEpicNaturalImages(date: String) {
+        repo.getAllEpicNaturalByDate(date) {
+
+        }
+    }
+
+    fun loadEpicEnhancedImages(date: String) {
+        repo.getAllEpicEnhancedByDate(date) {
+
+        }
     }
 }
