@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import project.paveltoy.podapp.data.DataRepo
 import project.paveltoy.podapp.data.DataRepoImpl
 import project.paveltoy.podapp.data.entities.EpicDay
+import project.paveltoy.podapp.data.entities.EpicImage
+import java.net.URI
 
 class EpicViewModel(
     private val repo: DataRepo = DataRepoImpl()
@@ -30,13 +32,14 @@ class EpicViewModel(
 
     fun loadEpicNaturalImages(date: String) {
         repo.getAllEpicNaturalByDate(date) {
-
+            _epicImageLiveData.value = it
         }
     }
 
     fun loadEpicEnhancedImages(date: String) {
         repo.getAllEpicEnhancedByDate(date) {
-
+            _epicImageLiveData.value = it
         }
     }
+
 }

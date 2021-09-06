@@ -9,7 +9,7 @@ import project.paveltoy.podapp.R
 import project.paveltoy.podapp.databinding.FragmentEpicImageBinding
 import project.paveltoy.podapp.ui.epic.EpicViewModel
 
-class EpicImageFragment: Fragment(R.layout.fragment_epic_image) {
+class EpicImageFragment : Fragment(R.layout.fragment_epic_image) {
     val binding: FragmentEpicImageBinding by viewBinding(FragmentEpicImageBinding::bind)
     var imageAdapter: EpicImageAdapter? = null
     var viewModel: EpicViewModel? = null
@@ -21,14 +21,15 @@ class EpicImageFragment: Fragment(R.layout.fragment_epic_image) {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProvider(this).get(EpicViewModel::class.java)
-        viewModel
+        viewModel = ViewModelProvider(requireActivity()).get(EpicViewModel::class.java)
+        viewModel?.epicImageLiveData?.observe(viewLifecycleOwner) {
+            imageAdapter?.imageData = it
+            imageAdapter?.notifyDataSetChanged()
+        }
     }
 
     private fun setViewPager() {
         imageAdapter = EpicImageAdapter()
-        binding.imagePager.let {
-            it.adapter = imageAdapter
-        }
+        binding.imagePager.adapter = imageAdapter
     }
 }

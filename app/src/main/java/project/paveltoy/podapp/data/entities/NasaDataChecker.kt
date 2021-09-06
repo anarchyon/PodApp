@@ -8,6 +8,7 @@ import retrofit2.Response
 object NasaDataChecker {
     var apodCallback: ((apod: Apod) -> Unit)? = null
     var epicDaysCallback: ((epicDays: List<EpicDay>) -> Unit)? = null
+    var epicImagesCallback: ((epicImages: List<EpicImage>) -> Unit)? = null
 
     val apodLoadCallback = object : Callback<Apod> {
         override fun onResponse(call: Call<Apod>, response: Response<Apod>) {
@@ -43,6 +44,25 @@ object NasaDataChecker {
 
     private fun isValidEpicDays(epicDays: List<EpicDay>): Boolean {
         // TODO: 05.09.2021
+        return true
+    }
+
+    val epicImagesLoadCallback = object : Callback<List<EpicImage>> {
+        override fun onResponse(call: Call<List<EpicImage>>, response: Response<List<EpicImage>>) {
+            val epicImages = response.body()
+            if (response.isSuccessful && epicImages != null) {
+                if (isValidEpicImages(epicImages)) epicImagesCallback?.let { it(epicImages) }
+            }
+        }
+
+        override fun onFailure(call: Call<List<EpicImage>>, t: Throwable) {
+
+        }
+
+    }
+
+    private fun isValidEpicImages(epicImages: List<EpicImage>): Boolean {
+        // TODO: 06.09.2021
         return true
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import project.paveltoy.podapp.R
@@ -23,7 +24,7 @@ class EnhancedColorsFragment: Fragment(R.layout.fragment_enhanced_colors) {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProvider(this).get(EpicViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(EpicViewModel::class.java)
         viewModel?.enhancedColorsLiveData?.observe(viewLifecycleOwner) {
             epicDatesAdapter.dates = it
             epicDatesAdapter.notifyDataSetChanged()
@@ -39,6 +40,7 @@ class EnhancedColorsFragment: Fragment(R.layout.fragment_enhanced_colors) {
     }
 
     private fun epicDateClickListener(date: String) {
+        findNavController().navigate(R.id.action_to_epic_image_fragment)
         viewModel?.loadEpicEnhancedImages(date)
     }
 }

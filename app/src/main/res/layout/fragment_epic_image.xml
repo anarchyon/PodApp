@@ -10,10 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/image_pager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@id/epic_image_header" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
