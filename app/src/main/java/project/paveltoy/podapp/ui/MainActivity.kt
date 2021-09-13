@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -70,10 +71,21 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         binding.bottomNavigation.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.settings_fragment) {
-                binding.bottomNavigation.visibility = View.GONE
-            } else {
-                binding.bottomNavigation.visibility = View.VISIBLE
+            binding.bottomNavigation.isVisible = destination.id != R.id.settings_fragment
+
+            when (destination.id) {
+                R.id.curiosity_fragment -> {
+                    binding.apply {
+                        imageCuriosity.visibility = View.VISIBLE
+                        collapsingToolbar.isTitleEnabled = true
+                    }
+                }
+                else -> {
+                    binding.apply {
+                        imageCuriosity.visibility = View.GONE
+                        collapsingToolbar.isTitleEnabled = false
+                    }
+                }
             }
         }
     }

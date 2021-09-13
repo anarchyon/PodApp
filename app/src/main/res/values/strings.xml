@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">PodApp</string>
     <string name="apod_decoding">Astronomy Picture of the Day</string>
-    <string name="donki_decoding">Space Weather Database Of Notifications, Knowledge, Information</string>
+    <string name="curiosity_decoding">Mars Rover Photos</string>
     <string name="epic_decoding">Earth Polychromatic Imaging Camera</string>
     <string name="apod">Космическая картинка дня</string>
-    <string name="donki">Космическая погода</string>
+    <string name="curiosity">Марсоход Curiosity</string>
     <string name="epic">Визуализация Земли</string>
     <string name="day_before_yesterday">Позавчера</string>
     <string name="yesterday">Вчера</string>
     <string name="today">Сегодня</string>
-    <string name="donki_short">Погода</string>
+    <string name="curiosity_short">Марсоход</string>
     <string name="epic_short">Визуализация</string>
     <string name="apod_short">Картинка дня</string>
     <string name="settings">Настройки</string>
@@ -21,4 +21,15 @@
     <string name="light_blue_theme">Light-Blue</string>
     <string name="epic_natural">Естественные цвета</string>
     <string name="epic_enhanced">Улучшенные цвета</string>
+    <string name="lorem_ipsum">"
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius vitae tellus elementum tempus. Quisque tincidunt elit lacus, ut volutpat massa pulvinar at. Etiam eleifend ullamcorper leo a laoreet. Nulla lectus odio, consectetur at convallis et, pretium nec eros. Nulla nec urna sit amet ligula vestibulum finibus. Pellentesque eu fringilla magna. Nunc aliquam non lacus vitae accumsan. Aliquam erat volutpat. Pellentesque molestie nunc luctus, ultricies metus vitae, finibus lorem. In hac habitasse platea dictumst. Vestibulum vel tellus ac lectus maximus bibendum.
+
+Donec quam lacus, eleifend ut tincidunt quis, porta malesuada mi. Duis at rutrum massa. Fusce ac sollicitudin odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse nisi magna, porttitor eget felis ut, tempor luctus diam. Suspendisse ullamcorper orci risus, vitae vehicula nisl bibendum id. Nam pharetra tempus tellus imperdiet pretium. Nulla sed fringilla odio. Proin eu ante tortor.
+
+Nam vestibulum odio sed fermentum pulvinar. Cras mollis faucibus nisi vel dapibus. Nunc accumsan ullamcorper dignissim. Fusce molestie hendrerit arcu, laoreet faucibus tortor efficitur ac. Nulla tellus est, finibus in euismod at, volutpat a mi. Morbi luctus fermentum nunc, ac tincidunt magna ultrices eu. Fusce faucibus porta magna, vitae volutpat augue mollis nec. Integer quis molestie nunc. Aenean dignissim ullamcorper ipsum. Mauris pulvinar ligula lacus, sit amet pretium enim ornare facilisis. In pretium sem in sem placerat volutpat. Nulla in congue tortor. Suspendisse non hendrerit augue. Duis a lorem aliquet, malesuada lectus vel, dignissim justo. Duis eu aliquam lorem.
+
+Fusce commodo, erat a consectetur tristique, elit lorem cursus mi, ac interdum elit arcu at est. Sed ultricies urna et enim finibus consectetur. Praesent non libero eget libero convallis vestibulum. Cras finibus scelerisque lorem in dapibus. Maecenas bibendum efficitur porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem orci, consequat nec diam sed, lacinia faucibus lorem. Vestibulum nec lobortis urna. Pellentesque suscipit vestibulum dapibus. Duis vulputate bibendum tortor, nec varius odio auctor vitae. Sed porta, lectus sed pellentesque porttitor, magna nibh sagittis lacus, ac suscipit enim augue id quam. Fusce non lacus pulvinar erat sagittis sollicitudin sed vel neque. Integer et justo nec arcu luctus laoreet. Aenean vestibulum fringilla sapien id egestas. Duis vitae ipsum quis nisi dapibus rhoncus. Aliquam erat volutpat.
+
+Phasellus ut est non tellus viverra pulvinar eu mattis urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis quis volutpat neque. Pellentesque iaculis in lectus eu dapibus. Suspendisse et rhoncus est. Pellentesque eu semper magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent sit amet porttitor velit. Mauris mauris mi, sollicitudin ac tincidunt quis, tristique non arcu. Vivamus a lectus et quam sagittis tempus nec non lacus. Pellentesque aliquet condimentum urna eget bibendum. Fusce nec efficitur lacus, eget dignissim elit. Fusce aliquet, turpis eu feugiat viverra, magna sapien euismod nulla, sed dapibus augue felis elementum justo. Morbi dapibus, augue eu elementum porta, est justo hendrerit turpis, eu hendrerit sem orci non quam. Mauris vel neque a elit finibus sodales vitae id dui. "</string>
 </resources>

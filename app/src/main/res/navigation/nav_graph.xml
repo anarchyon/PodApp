@@ -6,7 +6,7 @@
 
     <action
         android:id="@+id/action_to_donki_fragment"
-        app:destination="@id/donki_fragment" />
+        app:destination="@id/curiosity_fragment" />
     <action
         android:id="@+id/action_to_epic_fragment"
         app:destination="@id/epic_fragment" />
@@ -28,9 +28,9 @@
         android:name="project.paveltoy.podapp.ui.apod.ApodFragment"
         android:label="ApodFragment" />
     <fragment
-        android:id="@+id/donki_fragment"
-        android:name="project.paveltoy.podapp.ui.donki.DonkiFragment"
-        android:label="DonkiFragment" />
+        android:id="@+id/curiosity_fragment"
+        android:name="project.paveltoy.podapp.ui.curiosity.CuriosityFragment"
+        android:label="CuriosityFragment" />
     <fragment
         android:id="@+id/settings_fragment"
         android:name="project.paveltoy.podapp.ui.settings.SettingsFragment"
