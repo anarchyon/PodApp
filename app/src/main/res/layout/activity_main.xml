@@ -66,6 +66,7 @@
         android:layout_height="wrap_content"
         app:layout_anchor="@id/top_appbar_layout"
         app:layout_anchorGravity="end|bottom"
+        android:src="@drawable/ic_battle"
         android:layout_margin="@dimen/common_margin"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

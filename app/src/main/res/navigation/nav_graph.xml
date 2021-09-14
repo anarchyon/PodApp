@@ -19,6 +19,9 @@
     <action
         android:id="@+id/action_to_epic_image_fragment"
         app:destination="@id/epic_image_fragment" />
+    <action
+        android:id="@+id/action_to_animation_fragment"
+        app:destination="@id/animation_fragment" />
     <fragment
         android:id="@+id/epic_fragment"
         android:name="project.paveltoy.podapp.ui.epic.EpicFragment"
@@ -39,4 +42,8 @@
         android:id="@+id/epic_image_fragment"
         android:name="project.paveltoy.podapp.ui.epic.epicimage.EpicImageFragment"
         android:label="EpicImageFragment" />
+    <fragment
+        android:id="@+id/animation_fragment"
+        android:name="project.paveltoy.podapp.ui.animation.AnimationFragment"
+        android:label="AnimationFragment" />
 </navigation>
