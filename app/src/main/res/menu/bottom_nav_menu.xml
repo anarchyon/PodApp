@@ -5,8 +5,8 @@
         android:id="@+id/apod_fragment"
         android:icon="@drawable/ic_apod"/>
     <item
-        android:title="@string/donki_short"
-        android:id="@+id/donki_fragment"
+        android:title="@string/curiosity_short"
+        android:id="@+id/curiosity_fragment"
         android:icon="@drawable/ic_donki"/>
     <item
         android:title="@string/epic_short"

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -29,6 +30,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         initNavigation()
         initToolbar()
+        initFab()
+    }
+
+    private fun initFab() {
+        binding.mainFab.setOnClickListener {
+            navController.navigate(R.id.action_to_animation_fragment)
+        }
     }
 
     private fun initTheme() {
@@ -70,10 +78,26 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         binding.bottomNavigation.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.settings_fragment) {
-                binding.bottomNavigation.visibility = View.GONE
-            } else {
-                binding.bottomNavigation.visibility = View.VISIBLE
+            binding.bottomNavigation.isVisible =
+                destination.id !in listOf(
+                    R.id.settings_fragment,
+                    R.id.animation_fragment,
+                    R.id.epic_image_fragment
+                )
+
+            when (destination.id) {
+                R.id.curiosity_fragment -> {
+                    binding.apply {
+                        imageCuriosity.visibility = View.VISIBLE
+                        collapsingToolbar.isTitleEnabled = true
+                    }
+                }
+                else -> {
+                    binding.apply {
+                        imageCuriosity.visibility = View.GONE
+                        collapsingToolbar.isTitleEnabled = false
+                    }
+                }
             }
         }
     }
