@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:transitionName="@string/epic_card_image"
     android:padding="@dimen/common_margin">
 
     <com.google.android.material.textview.MaterialTextView

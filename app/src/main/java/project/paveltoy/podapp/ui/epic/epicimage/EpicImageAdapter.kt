@@ -8,12 +8,16 @@ import project.paveltoy.podapp.databinding.ItemEpicImageBinding
 
 class EpicImageAdapter : RecyclerView.Adapter<EpicImageAdapter.EpicImageViewHolder>() {
     var imageData: List<String> = listOf()
+    var onClickListener: (() -> Unit)? = null
 
-    class EpicImageViewHolder(private val binding: ItemEpicImageBinding) :
+    inner class EpicImageViewHolder(private val binding: ItemEpicImageBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
             fun bind(imgAddress: String) {
                 Picasso.get().load(imgAddress).into(binding.epicImageView)
+                itemView.setOnClickListener {
+                    onClickListener?.invoke()
+                }
             }
     }
 
