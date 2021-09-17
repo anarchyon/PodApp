@@ -3,4 +3,5 @@
     <dimen name="common_margin">16dp</dimen>
     <dimen name="item_epic_height">45dp</dimen>
     <dimen name="alternative_bar_size">150dp</dimen>
+    <dimen name="half_margin">8dp</dimen>
 </resources>

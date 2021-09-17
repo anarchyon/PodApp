@@ -16,6 +16,8 @@ import project.paveltoy.podapp.R
 import project.paveltoy.podapp.databinding.ActivityMainBinding
 import project.paveltoy.podapp.utils.ThemesInfo
 
+const val MOTION_DURATION_LONG = 1000L
+
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::bind)
     private lateinit var navController: NavController
@@ -65,7 +67,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.app_settings -> {
-                navController.navigate(R.id.action_to_settings_fragment)
+                navController.apply {
+                    if (currentDestination?.id != R.id.settings_fragment)
+                        navigate(R.id.action_to_settings_fragment)
+                }
             }
         }
         return true

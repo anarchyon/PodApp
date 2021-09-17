@@ -21,6 +21,8 @@
     <string name="light_blue_theme">Light-Blue</string>
     <string name="epic_natural">Естественные цвета</string>
     <string name="epic_enhanced">Улучшенные цвета</string>
+    <string name="epic_card_transition_name">epic_card</string>
+    <string name="epic_card_image">epic_card_image</string>
     <string name="lorem_ipsum">"
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius vitae tellus elementum tempus. Quisque tincidunt elit lacus, ut volutpat massa pulvinar at. Etiam eleifend ullamcorper leo a laoreet. Nulla lectus odio, consectetur at convallis et, pretium nec eros. Nulla nec urna sit amet ligula vestibulum finibus. Pellentesque eu fringilla magna. Nunc aliquam non lacus vitae accumsan. Aliquam erat volutpat. Pellentesque molestie nunc luctus, ultricies metus vitae, finibus lorem. In hac habitasse platea dictumst. Vestibulum vel tellus ac lectus maximus bibendum.
