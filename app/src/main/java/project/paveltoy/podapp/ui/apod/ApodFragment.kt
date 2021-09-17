@@ -1,21 +1,21 @@
 package project.paveltoy.podapp.ui.apod
 
 import android.os.Bundle
-import android.transition.ChangeBounds
-import android.transition.ChangeImageTransform
-import android.transition.TransitionManager
+import android.transition.*
+import android.view.Gravity
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import android.transition.TransitionSet
 import android.view.ViewGroup
 import android.widget.ImageView
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.material.transition.MaterialContainerTransform
 import com.squareup.picasso.Picasso
 import project.paveltoy.podapp.R
 import project.paveltoy.podapp.data.entities.Apod
 import project.paveltoy.podapp.databinding.FragmentApodBinding
+import project.paveltoy.podapp.ui.MOTION_DURATION_LONG
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -30,32 +30,14 @@ class ApodFragment : Fragment(R.layout.fragment_apod) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        enterTransition = Slide().apply {
+            slideEdge = Gravity.END
+            duration = MOTION_DURATION_LONG
+        }
         setTitle()
         initViewModel()
         setChipsListener()
-        setImageClickListener()
         binding.chipsApod.check(binding.todayApod.id)
-    }
-
-    private fun setImageClickListener() {
-        binding.apodImage.apply {
-            setOnClickListener {
-                isImageExpanded = !isImageExpanded
-                TransitionManager.beginDelayedTransition(
-                    binding.transitionContainer, TransitionSet()
-                        .addTransition(ChangeBounds())
-                        .addTransition(ChangeImageTransform())
-                )
-                val params: ViewGroup.LayoutParams = layoutParams
-                params.height =
-                    if (isImageExpanded) ViewGroup.LayoutParams.MATCH_PARENT
-                    else ViewGroup.LayoutParams.WRAP_CONTENT
-                layoutParams = params
-                scaleType =
-                    if (isImageExpanded) ImageView.ScaleType.CENTER_CROP
-                    else ImageView.ScaleType.FIT_CENTER
-            }
-        }
     }
 
     private fun setChipsListener() {
