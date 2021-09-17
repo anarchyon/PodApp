@@ -16,6 +16,7 @@ class EpicImageFragment : Fragment(R.layout.fragment_epic_image) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        enterTransition
         setViewPager()
         initViewModel()
     }
