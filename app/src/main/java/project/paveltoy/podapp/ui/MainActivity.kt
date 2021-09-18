@@ -72,6 +72,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                         navigate(R.id.action_to_settings_fragment)
                 }
             }
+            R.id.notes -> {
+                navController.apply {
+                    if (currentDestination?.id != R.id.notes_fragment)
+                        navigate(R.id.action_to_notes_fragment)
+                }
+            }
         }
         return true
     }
@@ -87,7 +93,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 destination.id !in listOf(
                     R.id.settings_fragment,
                     R.id.animation_fragment,
-                    R.id.epic_image_fragment
+                    R.id.epic_image_fragment,
+                    R.id.notes_fragment,
                 )
 
             when (destination.id) {
@@ -104,6 +111,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                     }
                 }
             }
+
+            binding.topAppbar.menu.findItem(R.id.notes).isVisible =
+                destination.id != R.id.settings_fragment
         }
     }
 
