@@ -35,4 +35,9 @@ Fusce commodo, erat a consectetur tristique, elit lorem cursus mi, ac interdum e
 
 Phasellus ut est non tellus viverra pulvinar eu mattis urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis quis volutpat neque. Pellentesque iaculis in lectus eu dapibus. Suspendisse et rhoncus est. Pellentesque eu semper magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent sit amet porttitor velit. Mauris mauris mi, sollicitudin ac tincidunt quis, tristique non arcu. Vivamus a lectus et quam sagittis tempus nec non lacus. Pellentesque aliquet condimentum urna eget bibendum. Fusce nec efficitur lacus, eget dignissim elit. Fusce aliquet, turpis eu feugiat viverra, magna sapien euismod nulla, sed dapibus augue felis elementum justo. Morbi dapibus, augue eu elementum porta, est justo hendrerit turpis, eu hendrerit sem orci non quam. Mauris vel neque a elit finibus sodales vitae id dui. "</string>
     <string name="notes">Заметки</string>
+    <string name="input_note_title">Тема заметки</string>
+    <string name="input_note_text">Текст заметки</string>
+    <string name="title_is_empty">Тема заметки пуста</string>
+    <string name="text_is_empty">Текст заметки пуст</string>
+    <string name="saving_note">Заметка сохраняется</string>
 </resources>

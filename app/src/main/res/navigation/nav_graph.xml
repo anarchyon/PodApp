@@ -61,4 +61,11 @@
         android:id="@+id/notes_fragment"
         android:name="project.paveltoy.podapp.ui.notes.NotesFragment"
         android:label="NotesFragment" />
+    <fragment
+        android:id="@+id/note_fragment"
+        android:name="project.paveltoy.podapp.ui.notes.note.NoteFragment"
+        android:label="NoteFragment" />
+    <action
+        android:id="@+id/action_to_note_fragment"
+        app:destination="@id/note_fragment" />
 </navigation>
