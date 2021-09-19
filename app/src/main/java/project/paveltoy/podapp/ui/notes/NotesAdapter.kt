@@ -2,6 +2,7 @@ package project.paveltoy.podapp.ui.notes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import project.paveltoy.podapp.data.entities.Note
@@ -11,11 +12,11 @@ import project.paveltoy.podapp.databinding.ItemNoteWithImageBinding
 private const val TYPE_NOTE_TEXT_NOTE = 0
 private const val TYPE_NOTE_WITH_IMAGE = 1
 
-class NotesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class NotesAdapter : RecyclerView.Adapter<NotesAdapter.BaseViewHolder>() {
     var notesDataSet: List<Note> = arrayListOf()
     var onClickListener: ((note: Note) -> Unit)? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return when (viewType) {
             TYPE_NOTE_TEXT_NOTE -> {
                 val binding: ItemNoteBinding =
@@ -31,15 +32,8 @@ class NotesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (getItemViewType(position)) {
-            TYPE_NOTE_TEXT_NOTE -> {
-                (holder as NoteViewHolder).bind(notesDataSet[position])
-            }
-            TYPE_NOTE_WITH_IMAGE -> {
-                (holder as NoteWithImageViewHolder).bind(notesDataSet[position])
-            }
-        }
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+        holder.bind(notesDataSet[position])
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -49,8 +43,8 @@ class NotesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemCount(): Int = notesDataSet.size
 
     inner class NoteViewHolder(private val binding: ItemNoteBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun bind(note: Note) {
+        BaseViewHolder(binding.root) {
+        override fun bind(note: Note) {
             binding.apply {
                 noteTitle.text = note.title
                 noteText.text = note.text
@@ -62,8 +56,8 @@ class NotesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     inner class NoteWithImageViewHolder(private val binding: ItemNoteWithImageBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun bind(note: Note) {
+        BaseViewHolder(binding.root) {
+        override fun bind(note: Note) {
             binding.apply {
                 noteTitle.text = note.title
                 noteText.text = note.text
@@ -73,5 +67,9 @@ class NotesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 onClickListener?.invoke(note)
             }
         }
+    }
+
+    abstract class BaseViewHolder(root: ConstraintLayout) : RecyclerView.ViewHolder(root) {
+        abstract fun bind(note: Note)
     }
 }
