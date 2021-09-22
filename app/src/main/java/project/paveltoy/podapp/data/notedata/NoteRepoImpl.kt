@@ -9,11 +9,19 @@ class NoteRepoImpl: NoteRepo {
         noteList.add(note)
     }
 
+    override fun saveNotes(notes: List<Note>) {
+
+    }
+
     override fun getNotes(): List<Note> {
         return noteList
     }
 
     override fun editNote(note: Note) {
 
+    }
+
+    override fun removeNote(note: Note) {
+        noteList.remove(note)
     }
 }

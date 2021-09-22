@@ -1,24 +1,20 @@
 package project.paveltoy.podapp.ui.notes
 
 import android.os.Bundle
-import android.transition.Slide
 import android.view.Gravity
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.transition.Transition
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.google.android.material.transition.MaterialContainerTransform
 import project.paveltoy.podapp.R
 import project.paveltoy.podapp.data.entities.Note
 import project.paveltoy.podapp.databinding.FragmentNotesBinding
 import project.paveltoy.podapp.ui.MOTION_DURATION_LONG
-import project.paveltoy.podapp.ui.MainViewModel
-import project.paveltoy.podapp.ui.notes.note.NoteFragment
 
 class NotesFragment: Fragment(R.layout.fragment_notes) {
     private val binding: FragmentNotesBinding by viewBinding(FragmentNotesBinding::bind)
@@ -47,7 +43,7 @@ class NotesFragment: Fragment(R.layout.fragment_notes) {
         notesViewModel?.noteListLiveData?.observe(viewLifecycleOwner) {
             notesAdapter.notesDataSet = it
         }
-        notesViewModel?.savedNoteLiveData?.observe(viewLifecycleOwner, this::saveNote)
+        notesViewModel?.savedNotePositionLiveData?.observe(viewLifecycleOwner, this::moveToSavedNote)
     }
 
     private fun setFabClickListener() {
@@ -66,10 +62,25 @@ class NotesFragment: Fragment(R.layout.fragment_notes) {
         notesRecyclerView = binding.notesRecyclerView
         notesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         notesRecyclerView.adapter = notesAdapter
-        notesAdapter.onClickListener = this::openNote
+        notesAdapter.apply {
+            onClickListener = this@NotesFragment::openNote
+            onItemMoveListener = this@NotesFragment::itemMove
+            onSwipeListener = this@NotesFragment::swipeNote
+        }
         notesViewModel?.loadNotes()?.let {
             notesAdapter.notesDataSet = it
         }
+        val itemSwipeCallback = ItemSwipeCallback(notesAdapter)
+        val itemTouchHelper = ItemTouchHelper(itemSwipeCallback)
+        itemTouchHelper.attachToRecyclerView(notesRecyclerView)
+    }
+
+    private fun itemMove(thisNote: Note, beforeNote: Note) {
+        notesViewModel?.swapNotes(thisNote, beforeNote)
+    }
+
+    private fun swipeNote(note: Note) {
+        notesViewModel?.deleteNote(note)
     }
 
     private fun openNote(note: Note) {
@@ -77,8 +88,7 @@ class NotesFragment: Fragment(R.layout.fragment_notes) {
         findNavController().navigate(R.id.action_to_note_fragment)
     }
 
-    private fun saveNote(note: Note) {
-//        notesAdapter.notifyDataSetChanged()
-        notesAdapter.notifyItemInserted(notesAdapter.itemCount - 1)
+    private fun moveToSavedNote(position: Int) {
+        notesAdapter.notifyItemInserted(position)
     }
 }

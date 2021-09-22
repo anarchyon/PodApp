@@ -10,7 +10,7 @@ class NotesViewModel: ViewModel() {
     private val noteRepo: NoteRepo = NoteRepoImpl()
     val selectedNoteLiveData = MutableLiveData<Note?>()
     val noteListLiveData = MutableLiveData<List<Note>>()
-    val savedNoteLiveData = MutableLiveData<Note>()
+    val savedNotePositionLiveData = MutableLiveData<Int>()
 
     fun setSelectedNote(note: Note) {
         selectedNoteLiveData.value = note
@@ -25,8 +25,21 @@ class NotesViewModel: ViewModel() {
     }
 
     fun saveNote(note: Note) {
-        noteRepo.saveNote(note)
-        noteListLiveData.value = noteRepo.getNotes()
-        savedNoteLiveData.value = note
+        if (noteRepo.getNotes().contains(note)) {
+            noteRepo.editNote(note)
+        } else {
+            noteRepo.saveNote(note)
+            noteListLiveData.value = noteRepo.getNotes()
+        }
+        savedNotePositionLiveData.value = noteRepo.getNotes().indexOf(note)
+    }
+
+    fun deleteNote(note: Note) {
+        noteRepo.removeNote(note)
+    }
+
+    fun swapNotes(thisNote: Note, beforeNote: Note) {
+        var notes = noteRepo.getNotes()
+
     }
 }
