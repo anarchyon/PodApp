@@ -12,9 +12,11 @@ import project.paveltoy.podapp.databinding.ItemNoteWithImageBinding
 private const val TYPE_NOTE_TEXT_NOTE = 0
 private const val TYPE_NOTE_WITH_IMAGE = 1
 
-class NotesAdapter : RecyclerView.Adapter<NotesAdapter.BaseViewHolder>() {
+class NotesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), ItemTouchHelperAdapter {
     var notesDataSet: List<Note> = arrayListOf()
     var onClickListener: ((note: Note) -> Unit)? = null
+    var onItemMoveListener: ((thisNote: Note, beforeNote: Note) -> Unit)? = null
+    var onSwipeListener: ((note: Note) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return when (viewType) {
@@ -71,5 +73,15 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.BaseViewHolder>() {
 
     abstract class BaseViewHolder(root: ConstraintLayout) : RecyclerView.ViewHolder(root) {
         abstract fun bind(note: Note)
+    }
+
+    override fun onItemMove(fromPosition: Int, toPosition: Int) {
+        onItemMoveListener?.invoke(notesDataSet[fromPosition], notesDataSet[toPosition])
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    override fun onItemSwipe(position: Int) {
+        onSwipeListener?.invoke(notesDataSet[position])
+        notifyItemRemoved(position)
     }
 }

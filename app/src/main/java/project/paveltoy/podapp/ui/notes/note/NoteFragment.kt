@@ -14,6 +14,7 @@ import project.paveltoy.podapp.ui.notes.NotesViewModel
 class NoteFragment : Fragment(R.layout.fragment_note) {
     private val binding: FragmentNoteBinding by viewBinding(FragmentNoteBinding::bind)
     private var viewModel: NotesViewModel? = null
+    private var note: Note? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,45 +26,48 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
         viewModel = ViewModelProvider(requireActivity()).get(NotesViewModel::class.java)
         viewModel?.selectedNoteLiveData?.observe(viewLifecycleOwner) {
             if (it != null) {
+                note = it
                 binding.apply {
                     noteFragmentText.editText?.setText(it.text)
                     noteFragmentTitle.editText?.setText(it.title)
                 }
-            }
+            } else note = null
         }
     }
 
-    fun initFab() {
+    private fun initFab() {
         binding.saveFab.setOnClickListener {
             when {
                 binding.noteFragmentTitle.editText?.text.isNullOrBlank() -> {
-                    Snackbar
-                        .make(requireContext(), requireView(), getString(R.string.title_is_empty), Snackbar.LENGTH_LONG)
-                        .setAnchorView(binding.saveFab)
-                        .show()
+                    view?.showLongtimeSnackbar(getString(R.string.title_is_empty), binding.saveFab)
                 }
                 binding.noteFragmentText.editText?.text.isNullOrBlank() -> {
-                    Snackbar
-                        .make(requireContext(), requireView(), getString(R.string.text_is_empty), Snackbar.LENGTH_LONG)
-                        .setAnchorView(binding.saveFab)
-                        .show()
+                    view?.showLongtimeSnackbar(getString(R.string.text_is_empty), binding.saveFab)
                 }
                 else -> {
-                    val note = Note(
-                        "id",
-                        binding.noteFragmentTitle.editText?.text.toString(),
-                        binding.noteFragmentText.editText?.text.toString(),
-                        null
-                    )
-                    viewModel?.saveNote(note)
-                    Snackbar
-                        .make(requireContext(), requireView(), getString(R.string.saving_note), Snackbar.LENGTH_LONG)
-                        .setAnchorView(binding.saveFab)
-                        .show()
+                    prepareNoteToSave()
+                    viewModel?.saveNote(note!!)
+                    view?.showLongtimeSnackbar(getString(R.string.saving_note), binding.saveFab)
                     requireActivity().onBackPressed()
                 }
             }
         }
     }
 
+    fun prepareNoteToSave() {
+        val title = binding.noteFragmentTitle.editText?.text.toString()
+        val text = binding.noteFragmentText.editText?.text.toString()
+        note = if (note == null) {
+            Note(title, text)
+        } else {
+            Note(title, text, id = note!!.id)
+        }
+    }
+}
+
+fun View.showLongtimeSnackbar(text: String, anchorView: View?) {
+    Snackbar
+        .make(this.context, this, text, Snackbar.LENGTH_LONG)
+        .setAnchorView(anchorView)
+        .show()
 }
