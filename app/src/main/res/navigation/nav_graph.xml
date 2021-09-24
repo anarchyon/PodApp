@@ -22,6 +22,9 @@
     <action
         android:id="@+id/action_to_epic_image_fragment"
         app:destination="@id/epic_image_fragment" />
+    <action
+        android:id="@+id/action_to_notes_fragment"
+        app:destination="@id/notes_fragment" />
     <fragment
         android:id="@+id/epic_fragment"
         android:name="project.paveltoy.podapp.ui.epic.EpicFragment"
@@ -47,11 +50,22 @@
         android:name="project.paveltoy.podapp.ui.animation.AnimationFragment"
         android:label="AnimationFragment" />
     <fragment
-        android:id="@+id/enhancedColorsFragment"
+        android:id="@+id/enhancedc_olors_fragment"
         android:name="project.paveltoy.podapp.ui.epic.colortype.EnhancedColorsFragment"
-        android:label="EnhancedColorsFragment"></fragment>
+        android:label="EnhancedColorsFragment"/>
     <fragment
-        android:id="@+id/naturalColorsFragment"
+        android:id="@+id/natural_colors_fragment"
         android:name="project.paveltoy.podapp.ui.epic.colortype.NaturalColorsFragment"
-        android:label="NaturalColorsFragment"></fragment>
+        android:label="NaturalColorsFragment"/>
+    <fragment
+        android:id="@+id/notes_fragment"
+        android:name="project.paveltoy.podapp.ui.notes.NotesFragment"
+        android:label="NotesFragment" />
+    <fragment
+        android:id="@+id/note_fragment"
+        android:name="project.paveltoy.podapp.ui.notes.note.NoteFragment"
+        android:label="NoteFragment" />
+    <action
+        android:id="@+id/action_to_note_fragment"
+        app:destination="@id/note_fragment" />
 </navigation>

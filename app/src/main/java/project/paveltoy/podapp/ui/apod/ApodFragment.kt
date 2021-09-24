@@ -26,7 +26,6 @@ private const val OFFSET_FOR_TODAY = 0
 class ApodFragment : Fragment(R.layout.fragment_apod) {
     private val binding: FragmentApodBinding by viewBinding(FragmentApodBinding::bind)
     private lateinit var viewModel: ApodViewModel
-    private var isImageExpanded = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

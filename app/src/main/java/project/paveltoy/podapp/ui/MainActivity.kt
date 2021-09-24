@@ -72,6 +72,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                         navigate(R.id.action_to_settings_fragment)
                 }
             }
+            R.id.notes -> {
+                navController.apply {
+                    if (currentDestination?.id != R.id.notes_fragment)
+                        navigate(R.id.action_to_notes_fragment)
+                }
+            }
         }
         return true
     }
@@ -83,12 +89,16 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         binding.bottomNavigation.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.bottomNavigation.isVisible =
-                destination.id !in listOf(
+            binding.bottomNavigation.visibility = when(destination.id) {
+                in listOf(
                     R.id.settings_fragment,
                     R.id.animation_fragment,
-                    R.id.epic_image_fragment
-                )
+                    R.id.epic_image_fragment,
+                    R.id.notes_fragment,
+                    R.id.note_fragment,
+                ) -> View.GONE
+                else -> View.VISIBLE
+            }
 
             when (destination.id) {
                 R.id.curiosity_fragment -> {
@@ -104,6 +114,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                     }
                 }
             }
+
+            binding.topAppbar.menu.findItem(R.id.notes).isVisible =
+                destination.id != R.id.settings_fragment
         }
     }
 
