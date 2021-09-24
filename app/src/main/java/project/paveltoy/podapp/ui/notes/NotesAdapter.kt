@@ -12,7 +12,7 @@ import project.paveltoy.podapp.databinding.ItemNoteWithImageBinding
 private const val TYPE_NOTE_TEXT_NOTE = 0
 private const val TYPE_NOTE_WITH_IMAGE = 1
 
-class NotesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), ItemTouchHelperAdapter {
+class NotesAdapter : RecyclerView.Adapter<NotesAdapter.BaseViewHolder>(), ItemTouchHelperAdapter {
     var notesDataSet: List<Note> = arrayListOf()
     var onClickListener: ((note: Note) -> Unit)? = null
     var onItemMoveListener: ((thisNote: Note, beforeNote: Note) -> Unit)? = null
