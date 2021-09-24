@@ -75,8 +75,8 @@ class NotesFragment: Fragment(R.layout.fragment_notes) {
         itemTouchHelper.attachToRecyclerView(notesRecyclerView)
     }
 
-    private fun itemMove(thisNote: Note, beforeNote: Note) {
-        notesViewModel?.swapNotes(thisNote, beforeNote)
+    private fun itemMove(fromPosition: Int, toPosition: Int) {
+        notesViewModel?.swapNotes(fromPosition, toPosition)
     }
 
     private fun swipeNote(note: Note) {

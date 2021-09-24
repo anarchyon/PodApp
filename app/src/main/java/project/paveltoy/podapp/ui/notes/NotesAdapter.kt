@@ -15,7 +15,7 @@ private const val TYPE_NOTE_WITH_IMAGE = 1
 class NotesAdapter : RecyclerView.Adapter<NotesAdapter.BaseViewHolder>(), ItemTouchHelperAdapter {
     var notesDataSet: List<Note> = arrayListOf()
     var onClickListener: ((note: Note) -> Unit)? = null
-    var onItemMoveListener: ((thisNote: Note, beforeNote: Note) -> Unit)? = null
+    var onItemMoveListener: ((fromPosition: Int, toPosition: Int) -> Unit)? = null
     var onSwipeListener: ((note: Note) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
@@ -76,7 +76,7 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.BaseViewHolder>(), ItemTo
     }
 
     override fun onItemMove(fromPosition: Int, toPosition: Int) {
-        onItemMoveListener?.invoke(notesDataSet[fromPosition], notesDataSet[toPosition])
+        onItemMoveListener?.invoke(fromPosition, toPosition)
         notifyItemMoved(fromPosition, toPosition)
     }
 
